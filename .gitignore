@@ -6,8 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
-# ignore private settings json
-settings.json
+# ignore libreLinkUp login settings file
+client.test.ts
 
 # Distribution / packaging
 .Python
