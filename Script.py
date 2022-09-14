@@ -1,9 +1,16 @@
-from ast import Param
 import RequestSensorData
 import ParseSensorData
 import json
+from pypresence import Presence
+import privateInfo
+import time
 
-data = RequestSensorData.getData()
+# make connection to Discord rich presence
+RPC = Presence(privateInfo.client_id)
+RPC.connect()
 
-latest_measurement = ParseSensorData.getLatestMeasurement(data)
-print("\nLatest measurement: \n" + json.dumps(latest_measurement) + "\n")
+while True: 
+    data = RequestSensorData.getData()
+    latest_measurement = ParseSensorData.getLatestMeasurement(data)
+    RPC.update(state="Current bloodsugar: " + str(latest_measurement['Value']))
+    time.sleep(15)
