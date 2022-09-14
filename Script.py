@@ -19,5 +19,5 @@ while True:
     BG_value = latest_measurement['Value']
     quote = StatusQuotes.getQuote(BG_value)
 
-    RPC.update(state= str(BG_value) + ": " + quote)
+    RPC.update(state= "BG:" + str(BG_value) + " - " + quote)
     time.sleep(15)
