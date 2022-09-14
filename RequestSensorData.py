@@ -20,21 +20,30 @@ loginData = {
     "password": privateInfo.password
 }
 
-def getData():
-    # 1st request: POST - get JWT token
+def setToken(email, password):
+    """ Requests authentication token and sets it automatically in the header files.
+
+        Parameters:
+        - Expects login credentials 
+    """
     r = requests.post(url = api_endpoint + "/llu/auth/login", headers=headers, json=loginData)
     data = r.json()
     JWT_token = data['data']['authTicket']['token']
-
-    # 2nd request: GET - get patientId
-    # update header with JWT token
     extra_header_info = {'authorization': 'Bearer ' + JWT_token}
     headers.update(extra_header_info) 
-    # request patiendId
+
+def getPatientId():
+    """ Requests and returns patient_id 
+    """
     r = requests.get(url = api_endpoint + "/llu/connections", headers=headers)
     data = r.json()
-    patient_ID = data['data'][0]['patientId']
+    return data['data'][0]['patientId']
 
-    # 3rd request: GET - get
-    r = requests.get(url = api_endpoint + "/llu/connections/" + patient_ID + "/graph", headers=headers)
+def getData(patient_id):
+    """ Requests and returns data
+
+        Parameters:
+        - Patient_id 
+    """
+    r = requests.get(url = api_endpoint + "/llu/connections/" + patient_id + "/graph", headers=headers)
     return r.json()
