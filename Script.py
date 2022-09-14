@@ -1,5 +1,6 @@
 import RequestSensorData
 import ParseSensorData
+import StatusQuotes
 from pypresence import Presence
 import privateInfo
 import time
@@ -15,5 +16,8 @@ RPC.connect()
 while True: 
     data = RequestSensorData.getData(patient_id)
     latest_measurement = ParseSensorData.getLatestMeasurement(data)
-    RPC.update(state="Current bloodsugar: " + str(latest_measurement['Value']))
+    BG_value = latest_measurement['Value']
+    quote = StatusQuotes.getQuote(BG_value)
+
+    RPC.update(state= str(BG_value) + ": " + quote)
     time.sleep(15)
