@@ -24,9 +24,11 @@ Once you made your application under general information save your application I
 
 **4.**  
 Make a file called "privateInfo.py" like this:  
+
     email = "XXX"  
     password = "XXX"  
     client_id = "XXX"  
+    
 and replace XXX with your LibreLinkUp info and 'client_id' will be your application ID.
 
 **5.**  
