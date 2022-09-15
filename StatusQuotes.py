@@ -57,4 +57,4 @@ def getQuote(BG_value):
     if BG_value > 10 and BG_value < 13.3:
         return {"quote":random.choice(list(quotesHigh.values())),"level":"High"}
     else:
-        return {"quote":random.choice(list(quotesExtremelyHigh.values())),"level":"Extremely Low"}
+        return {"quote":random.choice(list(quotesExtremelyHigh.values())),"level":"Extremely High "}
