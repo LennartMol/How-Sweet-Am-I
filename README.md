@@ -1,5 +1,5 @@
 # How-Sweet-Am-I
-A python script to read your glucose level and update your discord playing status accordingly with your glucose level and a fun quote.  
+A python script to read your glucose level and update your discord 'playing status' accordingly. Also displays a quote based this value.
 ![Example of it working in Discord](https://i.imgur.com/tdXdVA1.png)
 
 You can easily use this script for yourself if you're a diabetic with a freestyle libre.  
