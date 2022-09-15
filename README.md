@@ -11,7 +11,7 @@ It also uses [qwertyquerty's Pypresence](https://github.com/qwertyquerty/pyprese
 ## Steps to use How-Sweet-Am-I:
 
 **1.**  
-Make sure download the LibreLinkUp app (IOS & Android) and make an account. This login information is later used to retreive real-time data.
+Download the LibreLinkUp app (IOS & Android) and make an account. This login information is later used to retreive real-time data.
 
 **2.**  
 In your official Libre Link app under 'Connected apps' make sure to add LibreLinkUp and add a connection.
