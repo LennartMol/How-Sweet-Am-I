@@ -13,15 +13,16 @@ quotesLow = {
     0: "Shake those hands.",
     1: "Feeling a little dizzy.",
     2: "Give me some sugar baby.",
-    3: "I feel tired."
+    3: "I feel tired.",
+    4: "I probably don't mean the things I say right now."
 }
 
 quotesNormal = {
-    0: "Nothing much, how are you?",
-    1: "I should be in this range more often.",
-    2: "Nothing to see here.",
-    3: "I feel fine at the moment.",
-    4: "I am not ill, my pancreas is just lazy."
+    0: "I should be in this range more often.",
+    1: "I feel fine at the moment.",
+    2: "I am not ill, my pancreas is just lazy.",
+    3: "Diabetics are naturally sweet.",
+    4: "I can do anything except make insuline."
 }
 
 quotesHigh = {
@@ -35,7 +36,8 @@ quotesExtremelyHigh = {
     1: "High on 6-(hydroxymethyl)oxane-2,3,4,5-tetrol.",
     2: "Don't think this will good for my nerves.",
     3: "No glasses will restore this eyesight.",
-    4: "Prepare for the rollercoaster drop."
+    4: "Prepare for the rollercoaster drop.",
+    5: "I don't need drugs to get high. A slice of pizza will do."
 }
 
 
@@ -47,12 +49,12 @@ def getQuote(BG_value):
     """
     
     if BG_value < 3:
-        return random.choice(list(quotesExtremelyLow.values()))
+        return {"quote":random.choice(list(quotesExtremelyLow.values())),"level":"Extremely Low"}
     if BG_value > 3 and BG_value < 4:
-        return random.choice(list(quotesLow.values()))
+        return {"quote":random.choice(list(quotesLow.values())),"level":"Low"}
     if BG_value > 4 and BG_value < 10:
-        return random.choice(list(quotesNormal.values()))
+        return {"quote":random.choice(list(quotesNormal.values())),"level":"Normal"}
     if BG_value > 10 and BG_value < 13.3:
-        return random.choice(list(quotesHigh.values()))
+        return {"quote":random.choice(list(quotesHigh.values())),"level":"High"}
     else:
-        return random.choice(list(quotesExtremelyHigh.values()))
+        return {"quote":random.choice(list(quotesExtremelyHigh.values())),"level":"Extremely Low"}
