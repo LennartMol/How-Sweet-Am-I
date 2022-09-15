@@ -22,7 +22,8 @@ quotesNormal = {
     1: "I feel fine at the moment.",
     2: "I am not ill, my pancreas is just lazy.",
     3: "Diabetics are naturally sweet.",
-    4: "I can do anything except make insuline."
+    4: "I can do anything except make insuline.",
+    5: "Perfectly balanced, the glucose, not my life."
 }
 
 quotesHigh = {
@@ -36,7 +37,7 @@ quotesExtremelyHigh = {
     1: "High on 6-(hydroxymethyl)oxane-2,3,4,5-tetrol.",
     2: "Don't think this will good for my nerves.",
     3: "No glasses will restore this eyesight.",
-    4: "Prepare for the rollercoaster drop.",
+    4: "Prepare for the sugar drop.",
     5: "I don't need drugs to get high. A slice of pizza will do."
 }
 
