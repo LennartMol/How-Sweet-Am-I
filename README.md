@@ -11,10 +11,10 @@ It also uses [qwertyquerty's Pypresence](https://github.com/qwertyquerty/pyprese
 ## Steps to use How-Sweet-Am-I:
 
 **1.**  
-Download the LibreLinkUp app (IOS & Android) and make an account. This login information is later used to retreive real-time data.
+Download the [LibreLinkUp app (IOS & Android)](https://www.librelinkup.com/) and make an account. This login information is later used to retreive real-time data.
 
 **2.**  
-In your official Libre Link app under 'Connected apps' make sure to add LibreLinkUp and add a connection.
+In your [official LibreLink app](https://www.freestyle.abbott/ca-en/apps-and-software/freestyle-libre-2.html) under 'Connected apps' make sure to add LibreLinkUp and add a connection.
 Use the email adress from the previous step.
 
 **3.**  
@@ -33,7 +33,8 @@ and replace XXX with your LibreLinkUp info and 'client_id' will be your applicat
 
 **5.**  
 Make sure to have all libraries downloaded before running the script.  
-- [qwertyquerty's Pypresence](https://github.com/qwertyquerty/pypresence) 
+[qwertyquerty's Pypresence](https://github.com/qwertyquerty/pypresence) 
 
-**Note**  
-This script requires Discord being installed and running on the device you're running the script on.
+**Notes**  
+- This script requires Discord being installed and running on the device you're running the script on.  
+- The sensor used to make this project is the 'FreeStyle Libre 2'. Currently it is not known if it also works with the 1st generation.
