@@ -16,7 +16,8 @@ quotesLow = {
 quotesNormal = {
     0: "Nothing much, how are you?",
     1: "I should be in this range more often.",
-    2: "Nothing to see here."
+    2: "Nothing to see here.",
+    3: "I feel fine at the moment."
 }
 
 quotesHigh = {

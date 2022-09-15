@@ -14,10 +14,14 @@ RPC = Presence(privateInfo.client_id)
 RPC.connect()
 
 while True: 
+    
     data = RequestSensorData.getData(patient_id)
     latest_measurement = ParseSensorData.getLatestMeasurement(data)
     BG_value = latest_measurement['Value']
     quote = StatusQuotes.getQuote(BG_value)
 
-    RPC.update(state= "BG:" + str(BG_value) + " - " + quote)
+    RPC.update( state = "Glucose level: " + str(BG_value) + " mmol/L", 
+                details = quote,
+                large_image = "blood-sugar-roller-coaster",
+                large_text = "Riding highs and lows like there's no tomorrow.")
     time.sleep(15)
