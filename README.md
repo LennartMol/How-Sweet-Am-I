@@ -4,8 +4,7 @@ A python script to read your glucose level and update your discord playing statu
 You can easily use this script for yourself if you're a diabetic with a freestyle libre.  
 
 This script uses the API of the external LibreLinkUp app.  
-It also uses [qwertyquerty's Pypresence: ](https://github.com/qwertyquerty/pypresence)   
-Pypresence is used to update Discord's 'Currently playing status' in which the glucose level and other data is shown.
+It also uses [qwertyquerty's Pypresence](https://github.com/qwertyquerty/pypresence) to update Discord's 'Currently playing status' in which the glucose level and other data is shown.
 
 
 ## Steps to use How-Sweet-Am-I:
