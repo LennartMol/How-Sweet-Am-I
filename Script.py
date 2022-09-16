@@ -19,7 +19,11 @@ patient_id = RequestSensorData.getPatientId()
 
 # make connection to Discord rich presence
 RPC = Presence(client_id)
-RPC.connect()
+try:
+    RPC.connect()
+except (ConnectionRefusedError, AssertionError) as error:
+    print("\nMake sure to have Discord installed and running.\n")
+    exit()
 
 
 while True: 
