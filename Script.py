@@ -5,15 +5,22 @@ from pypresence import Presence
 import time
 import os
 
-# fetch environment variables
-email = os.environ.get("EMAIL")
-password = os.environ.get("PASSWORD")
-client_id = os.environ.get("CLIENT_ID")
-if email == None or password == None or client_id == None:
-    print(f"\nMake sure to correctly set your environment variables.\n")
-    exit()
+def getEnvironmentVariables():
+    """ Gets environment variables and sets them in global variables
+    """
+
+    global email, password, client_id
+    email = os.environ.get("EMAIL")
+    password = os.environ.get("PASSWORD")
+    client_id = os.environ.get("CLIENT_ID")
+    if email == None or password == None or client_id == None:
+        print(f"\nMake sure to correctly set your environment variables.\n")
+        exit()
 
 def connectToLibreLinkUp():
+    """ Tries to make a connection to LibreLinkUp and requests patiend_id
+    """
+
     global patient_id
     try:
         RequestSensorData.setToken(email, password)
@@ -21,16 +28,19 @@ def connectToLibreLinkUp():
     except:
         print(f"\n{time.strftime('%H:%M:%S')} - API timeout. Trying again.")
 
-
-# make connection to Discord rich presence
 def connectToPresence():
+    """ Tries to make a connection to Rich Presence and create RPC object
+    """
+    
     global RPC 
     RPC = Presence(client_id)
     try:
         RPC.connect()
     except:
         print(f"\n{time.strftime('%H:%M:%S')} - Discord is closed. Make sure to have it running.")
-        
+
+
+getEnvironmentVariables()        
 connectToLibreLinkUp()
 connectToPresence()
 
