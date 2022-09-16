@@ -2,19 +2,27 @@ import RequestSensorData
 import ParseSensorData
 import StatusQuotes
 from pypresence import Presence
-import privateInfo
 import time
+import os
+
+# fetch environment variables
+email = os.environ.get('EMAIL')
+password = os.environ.get('PASSWORD')
+client_id = os.environ.get('CLIENT_ID')
+if email == None or password == None or client_id == None:
+    print("\nMake sure to correctly set your environment variables.\n")
+    exit()
 
 # set auth token and patient_id
-RequestSensorData.setToken(privateInfo.email, privateInfo.password)
+RequestSensorData.setToken(email, password)
 patient_id = RequestSensorData.getPatientId()
 
 # make connection to Discord rich presence
-RPC = Presence(privateInfo.client_id)
+RPC = Presence(client_id)
 RPC.connect()
 
+
 while True: 
-    
     data = RequestSensorData.getData(patient_id)
     latest_measurement = ParseSensorData.getLatestMeasurement(data)
     BG_value = latest_measurement['Value']
