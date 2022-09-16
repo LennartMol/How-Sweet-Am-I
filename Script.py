@@ -66,8 +66,9 @@ while True:
         print(f"\n{time.strftime('%H:%M:%S')} - Updated Discord playing status.")
     except Exception as e:
         if e.args[0] == "Client ID is Invalid":
-            test = 1
-        else:
+            print(f"Client ID is invaled. Check and reset the environment variable.")
+            exit()
+        else:    
             connectToPresence()
 
     # minimum delay between updating Discord playing status
