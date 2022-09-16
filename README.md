@@ -34,7 +34,8 @@ and replace XXX with your LibreLinkUp info and 'client_id' will be your applicat
 
 **5.**  
 Make sure to have all libraries downloaded before running the script.  
-[qwertyquerty's Pypresence](https://github.com/qwertyquerty/pypresence) 
+- requests
+- [qwertyquerty's Pypresence](https://github.com/qwertyquerty/pypresence) 
 
 **Notes**  
 - This script requires Discord being installed and running on the device you're running the script on.  
