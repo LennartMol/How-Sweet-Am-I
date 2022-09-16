@@ -29,7 +29,7 @@ Make your environment variables like this in a console window (which you plan on
     export PASSWORD=XXX  
     export CLIENT_ID=XXX   
     
-and replace XXX with your LibreLinkUp info and 'client_id' will be your application ID.
+and replace XXX with your LibreLinkUp info and 'client_id' will be your application ID.  
 'export' is used for Linux and Mac OS. If you are using windows, use 'set'.
 
 **5.**  
