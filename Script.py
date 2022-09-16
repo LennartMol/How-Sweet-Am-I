@@ -17,23 +17,31 @@ if email == None or password == None or client_id == None:
 RequestSensorData.setToken(email, password)
 patient_id = RequestSensorData.getPatientId()
 
-# make connection to Discord rich presence
-RPC = Presence(client_id)
-try:
-    RPC.connect()
-except (ConnectionRefusedError, AssertionError) as error:
-    print(f"\nMake sure to have Discord installed and running.\n")
-    exit()
 
+# make connection to Discord rich presence
+def connectToPresence():
+    global RPC 
+    RPC = Presence(client_id)
+    try:
+        RPC.connect()
+    except:
+        print(f"\n{time.strftime('%H:%M:%S')} - Discord is closed. Make sure to have it running.")
+
+connectToPresence()
 
 while True: 
+    
     data = RequestSensorData.getData(patient_id)
     latest_measurement = ParseSensorData.getLatestMeasurement(data)
     BG_value = latest_measurement['Value']
     info = StatusQuotes.getQuote(BG_value)
 
-    RPC.update( state = f"BG: {BG_value} mmol/L - {info['level']}", 
-                details = info['quote'],
-                large_image = "blood-sugar-roller-coaster",
-                large_text = "Riding highs and lows like there's no tomorrow.")
+    try:
+        RPC.update( state = f"BG: {BG_value} mmol/L - {info['level']}", 
+                    details = info['quote'],
+                    large_image = "blood-sugar-roller-coaster",
+                    large_text = "Riding highs and lows like there's no tomorrow.")
+        print(f"\n{time.strftime('%H:%M:%S')} - Updated Discord playing status.")
+    except:
+        connectToPresence()
     time.sleep(15)
