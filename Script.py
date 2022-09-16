@@ -25,11 +25,8 @@ def connectToLibreLinkUp():
     try:
         RequestSensorData.setToken(email, password)
         patient_id = RequestSensorData.getPatientId()
-    except Exception as e:
-        if e == ValueError():
-            print(e)
-        else:
-            print(f"\n{time.strftime('%H:%M:%S')} - API timeout. Trying again.")
+    except:
+        print(f"\n{time.strftime('%H:%M:%S')} - API timeout. Trying again.")
 
 def connectToPresence():
     """ Tries to make a connection to Rich Presence and create RPC object
