@@ -25,8 +25,11 @@ def connectToLibreLinkUp():
     try:
         RequestSensorData.setToken(email, password)
         patient_id = RequestSensorData.getPatientId()
-    except:
-        print(f"\n{time.strftime('%H:%M:%S')} - API timeout. Trying again.")
+    except Exception as e:
+        if e == ValueError():
+            print(e)
+        else:
+            print(f"\n{time.strftime('%H:%M:%S')} - API timeout. Trying again.")
 
 def connectToPresence():
     """ Tries to make a connection to Rich Presence and create RPC object
@@ -68,7 +71,7 @@ while True:
         if e.args[0] == "Client ID is Invalid":
             print(f"Client ID is invaled. Check and reset the environment variable.")
             exit()
-        else:    
+        else:
             connectToPresence()
 
     # minimum delay between updating Discord playing status

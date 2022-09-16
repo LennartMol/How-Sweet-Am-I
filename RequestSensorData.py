@@ -1,3 +1,4 @@
+from logging import exception
 import requests
 
 # api-endpoint
@@ -23,6 +24,8 @@ def setToken(email, password):
     loginData = {"email": email, "password": password}
     r = requests.post(url = api_endpoint + "/llu/auth/login", headers=headers, json=loginData)
     data = r.json()
+    if data['error']:
+        raise ValueError
     JWT_token = data['data']['authTicket']['token']
     extra_header_info = {'authorization': 'Bearer ' + JWT_token}
     headers.update(extra_header_info) 
