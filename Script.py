@@ -13,9 +13,13 @@ if email == None or password == None or client_id == None:
     print(f"\nMake sure to correctly set your environment variables.\n")
     exit()
 
-# set auth token and patient_id
-RequestSensorData.setToken(email, password)
-patient_id = RequestSensorData.getPatientId()
+def connectToLibreLinkUp():
+    global patient_id
+    try:
+        RequestSensorData.setToken(email, password)
+        patient_id = RequestSensorData.getPatientId()
+    except:
+        print(f"\n{time.strftime('%H:%M:%S')} - API timeout. Trying again.")
 
 
 # make connection to Discord rich presence
@@ -26,16 +30,24 @@ def connectToPresence():
         RPC.connect()
     except:
         print(f"\n{time.strftime('%H:%M:%S')} - Discord is closed. Make sure to have it running.")
-
+        
+connectToLibreLinkUp()
 connectToPresence()
 
 while True: 
     
-    data = RequestSensorData.getData(patient_id)
+    # request data from LibreLinkUp
+    try:
+        data = RequestSensorData.getData(patient_id)
+    except:
+        connectToLibreLinkUp()
+
+    # get blood glucose and quote
     latest_measurement = ParseSensorData.getLatestMeasurement(data)
     BG_value = latest_measurement['Value']
     info = StatusQuotes.getQuote(BG_value)
 
+    # update Discord playing status
     try:
         RPC.update( state = f"BG: {BG_value} mmol/L - {info['level']}", 
                     details = info['quote'],
@@ -44,4 +56,6 @@ while True:
         print(f"\n{time.strftime('%H:%M:%S')} - Updated Discord playing status.")
     except:
         connectToPresence()
+
+    # minimum delay between updating Discord playing status
     time.sleep(15)
