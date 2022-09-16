@@ -23,13 +23,14 @@ Once you made your application under general information save your application I
 (optional) add an image in your application under Rich Presence -> Art Assets -> Rich Presence Assets. The name of this image can be used to display it.  
 
 **4.**  
-Make a file called "privateInfo.py" like this:  
+Make your environment variables like this in a console window (which you plan on running the script in). 
 
-    email = "XXX"  
-    password = "XXX"  
-    client_id = "XXX"  
+    export EMAIL=XXX  
+    export PASSWORD=XXX  
+    export CLIENT_ID=XXX   
     
 and replace XXX with your LibreLinkUp info and 'client_id' will be your application ID.
+'export' is used for Linux and Mac OS. If you are using windows, use 'set'.
 
 **5.**  
 Make sure to have all libraries downloaded before running the script.  
