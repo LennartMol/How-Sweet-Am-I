@@ -64,8 +64,11 @@ while True:
                     large_image = "blood-sugar-roller-coaster",
                     large_text = "Riding highs and lows like there's no tomorrow.")
         print(f"\n{time.strftime('%H:%M:%S')} - Updated Discord playing status.")
-    except:
-        connectToPresence()
+    except Exception as e:
+        if e.args[0] == "Client ID is Invalid":
+            test = 1
+        else:
+            connectToPresence()
 
     # minimum delay between updating Discord playing status
     time.sleep(15)
