@@ -6,11 +6,11 @@ import time
 import os
 
 # fetch environment variables
-email = os.environ.get('EMAIL')
-password = os.environ.get('PASSWORD')
-client_id = os.environ.get('CLIENT_ID')
+email = os.environ.get("EMAIL")
+password = os.environ.get("PASSWORD")
+client_id = os.environ.get("CLIENT_ID")
 if email == None or password == None or client_id == None:
-    print("\nMake sure to correctly set your environment variables.\n")
+    print(f"\nMake sure to correctly set your environment variables.\n")
     exit()
 
 # set auth token and patient_id
@@ -22,7 +22,7 @@ RPC = Presence(client_id)
 try:
     RPC.connect()
 except (ConnectionRefusedError, AssertionError) as error:
-    print("\nMake sure to have Discord installed and running.\n")
+    print(f"\nMake sure to have Discord installed and running.\n")
     exit()
 
 
@@ -32,8 +32,8 @@ while True:
     BG_value = latest_measurement['Value']
     info = StatusQuotes.getQuote(BG_value)
 
-    RPC.update( state = "BG: " + str(BG_value) + " mmol/L - " + info["level"], 
-                details = info["quote"],
+    RPC.update( state = f"BG: {BG_value} mmol/L - {info['level']}", 
+                details = info['quote'],
                 large_image = "blood-sugar-roller-coaster",
                 large_text = "Riding highs and lows like there's no tomorrow.")
     time.sleep(15)
