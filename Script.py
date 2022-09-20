@@ -53,8 +53,7 @@ while True:
         connectToLibreLinkUp()
 
     # get blood glucose and quote
-    latest_measurement = ParseSensorData.getLatestMeasurement(data)
-    BG_value = latest_measurement['Value']
+    BG_value = ParseSensorData.getLatestMeasurement(data)
     info = StatusQuotes.getQuote(BG_value)
 
     # update Discord playing status

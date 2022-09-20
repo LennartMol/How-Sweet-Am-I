@@ -5,9 +5,7 @@ def getLatestMeasurement(data):
         Parameters:
         - Expects data dictionary
     """
-    
-    all_measurements = data['data']['graphData']
-    latest_measurement = all_measurements[len(all_measurements) - 1]
+    latest_measurement = data['data']['connection']['glucoseMeasurement']['Value']
     return latest_measurement
 
 def getAllMeasurements(data):
