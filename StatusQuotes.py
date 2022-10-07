@@ -1,5 +1,10 @@
 import random
 
+quotesIMightBeDead = {
+    0: "Call 112 right now.",
+    1: "Might be dead to be honest."
+}
+
 quotesExtremelyLow = {
     0: "Visit me in the hospital.",
     1: "If I go any lower I'll end up in a coma.",
@@ -48,8 +53,9 @@ def getQuote(BG_value):
         Parameters:
         - Expects BG_value
     """
-    
-    if BG_value < 3:
+    if BG_value < 1.1:
+        return {"quote":random.choice(list(quotesIMightBeDead.values())),"level":"In hospital"}
+    if BG_value < 3 and BG_value >= 1.1:
         return {"quote":random.choice(list(quotesExtremelyLow.values())),"level":"Extremely Low"}
     if BG_value > 3 and BG_value < 4:
         return {"quote":random.choice(list(quotesLow.values())),"level":"Low"}

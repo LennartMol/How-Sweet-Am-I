@@ -5,6 +5,7 @@ from pypresence import Presence
 import time
 import os
 
+
 def getEnvironmentVariables():
     """ Gets environment variables and sets them in global variables
     """
@@ -54,11 +55,13 @@ while True:
 
     # get blood glucose and quote
     BG_value = ParseSensorData.getLatestMeasurement(data)
+    BG_value = 1
     info = StatusQuotes.getQuote(BG_value)
 
     # update Discord playing status
     try:
-        RPC.update( state = f"BG: {BG_value} mmol/L - {info['level']}", 
+        RPC.update( #state = f"BG: {BG_value} mmol/L - {info['level']}", 
+                    state = f"BG: {BG_value} mmol/L - {info['level']}", 
                     details = info['quote'],
                     large_image = "blood-sugar-roller-coaster",
                     large_text = "Riding highs and lows like there's no tomorrow.")
