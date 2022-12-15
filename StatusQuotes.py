@@ -55,13 +55,13 @@ def getQuote(BG_value):
     """
     if BG_value < 1.1:
         return {"quote":random.choice(list(quotesIMightBeDead.values())),"level":"In hospital"}
-    if BG_value < 3 and BG_value >= 1.1:
+    if BG_value >= 1.1 and BG_value < 3:
         return {"quote":random.choice(list(quotesExtremelyLow.values())),"level":"Extremely Low"}
-    if BG_value > 3 and BG_value < 4:
+    if BG_value >= 3 and BG_value < 4:
         return {"quote":random.choice(list(quotesLow.values())),"level":"Low"}
-    if BG_value > 4 and BG_value < 10:
+    if BG_value >= 4 and BG_value < 10:
         return {"quote":random.choice(list(quotesNormal.values())),"level":"Normal"}
-    if BG_value > 10 and BG_value < 13.3:
+    if BG_value >= 10 and BG_value < 13.3:
         return {"quote":random.choice(list(quotesHigh.values())),"level":"High"}
     else:
         return {"quote":random.choice(list(quotesExtremelyHigh.values())),"level":"Extremely High "}

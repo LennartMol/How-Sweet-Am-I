@@ -55,7 +55,6 @@ while True:
 
     # get blood glucose and quote
     BG_value = ParseSensorData.getLatestMeasurement(data)
-    BG_value = 1
     info = StatusQuotes.getQuote(BG_value)
 
     # update Discord playing status
